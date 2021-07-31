@@ -2,6 +2,7 @@ package com.example.trendings.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewbinding.ViewBinding
 import com.example.trendings.core.extensions.gone
 import com.example.trendings.core.extensions.visible
 import com.example.trendings.core.utils.InternetMonitor
@@ -13,6 +14,9 @@ import com.example.trendings.databinding.UiInternetMonitorBinding
  */
 
 abstract class BaseActivity : AppCompatActivity() {
+
+    abstract fun getLayout(): ViewBinding
+
     private lateinit var internetMessageBinding: UiInternetMonitorBinding
 
     //internet monitor, to monitor the internet state to to update the app
@@ -35,6 +39,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(getLayout().root)
         internetMessageBinding = UiInternetMonitorBinding.inflate(layoutInflater)
     }
 

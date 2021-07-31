@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trendings.core.utils.loadImage
 import com.example.trendings.data.local.models.Trending
-import com.example.trendings.databinding.AdapterTrendingBinding
+import com.example.trendings.databinding.RowAdapterTrendingBinding
 
 class TrendingAdapter :
     RecyclerView.Adapter<TrendingAdapter.TrendingViewHolder>() {
@@ -15,7 +15,7 @@ class TrendingAdapter :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrendingViewHolder {
 
         return TrendingViewHolder(
-            AdapterTrendingBinding.inflate(
+            RowAdapterTrendingBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -38,7 +38,7 @@ class TrendingAdapter :
         return trendingList.size
     }
 
-    inner class TrendingViewHolder(private val binding: AdapterTrendingBinding) :
+    inner class TrendingViewHolder(private val binding: RowAdapterTrendingBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(trending: Trending) = binding.apply {
             rowItemTvName.text = trending.username

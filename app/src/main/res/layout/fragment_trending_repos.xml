@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/adapter_trending" />
+        tools:listitem="@layout/row_adapter_trending" />
 
     <include
         android:id="@+id/uiError"
@@ -32,35 +32,35 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="gone">
 
-        <include layout="@layout/adapter_trending_shimmer" />
+        <include layout="@layout/row_adapter_trending_shimmer" />
 
-        <include layout="@layout/adapter_trending_shimmer" />
+        <include layout="@layout/row_adapter_trending_shimmer" />
 
-        <include layout="@layout/adapter_trending_shimmer" />
+        <include layout="@layout/row_adapter_trending_shimmer" />
 
-        <include layout="@layout/adapter_trending_shimmer" />
+        <include layout="@layout/row_adapter_trending_shimmer" />
 
-        <include layout="@layout/adapter_trending_shimmer" />
+        <include layout="@layout/row_adapter_trending_shimmer" />
 
-        <include layout="@layout/adapter_trending_shimmer" />
+        <include layout="@layout/row_adapter_trending_shimmer" />
 
-        <include layout="@layout/adapter_trending_shimmer" />
+        <include layout="@layout/row_adapter_trending_shimmer" />
 
-        <include layout="@layout/adapter_trending_shimmer" />
+        <include layout="@layout/row_adapter_trending_shimmer" />
 
-        <include layout="@layout/adapter_trending_shimmer" />
+        <include layout="@layout/row_adapter_trending_shimmer" />
 
-        <include layout="@layout/adapter_trending_shimmer" />
+        <include layout="@layout/row_adapter_trending_shimmer" />
 
-        <include layout="@layout/adapter_trending_shimmer" />
+        <include layout="@layout/row_adapter_trending_shimmer" />
 
-        <include layout="@layout/adapter_trending_shimmer" />
+        <include layout="@layout/row_adapter_trending_shimmer" />
 
-        <include layout="@layout/adapter_trending_shimmer" />
+        <include layout="@layout/row_adapter_trending_shimmer" />
 
-        <include layout="@layout/adapter_trending_shimmer" />
+        <include layout="@layout/row_adapter_trending_shimmer" />
 
-        <include layout="@layout/adapter_trending_shimmer" />
+        <include layout="@layout/row_adapter_trending_shimmer" />
 
 
     </LinearLayout>

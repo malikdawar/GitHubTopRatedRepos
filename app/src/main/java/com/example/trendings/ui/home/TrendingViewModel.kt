@@ -6,11 +6,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.trendings.data.remote.model.TrendingRepoCallBack
 import com.example.trendings.data.repository.TrendingRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class TrendingViewModel(private val mTrendingRepo: TrendingRepository) : ViewModel() {
+@HiltViewModel
+class TrendingViewModel @Inject constructor(
+    private val trendingRepository: TrendingRepository) : ViewModel() {
+
     private val trendingUIData = MutableLiveData<TrendingUIState>()
 
     fun getTrendingUIData(): LiveData<TrendingUIState> = trendingUIData
@@ -18,7 +23,7 @@ class TrendingViewModel(private val mTrendingRepo: TrendingRepository) : ViewMod
     fun getTrendingRepos(refresh: Boolean = false) {
         viewModelScope.launch {
             trendingUIData.postValue(TrendingUIState.Loading)
-            when (val repos = mTrendingRepo.getTrendingRepos(refresh)) {
+            when (val repos = trendingRepository.getTrendingRepos(refresh)) {
                 is TrendingRepoCallBack.Repositories -> {
                     trendingUIData.postValue(TrendingUIState.Success(repos.trending))
                 }
@@ -40,7 +45,7 @@ class TrendingViewModel(private val mTrendingRepo: TrendingRepository) : ViewMod
     fun deleteTrendingRepos() {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
-                mTrendingRepo.deleteLocalTrendingRepos()
+                trendingRepository.deleteLocalTrendingRepos()
             }
             trendingUIData.postValue(TrendingUIState.Clear)
         }
