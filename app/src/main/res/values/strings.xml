@@ -1,9 +1,16 @@
 <resources>
     <string name="app_name">ImageLibrary</string>
     <string name="screen_home_title_str">Home</string>
-    <string name="screen_photo_details_title_str">Photo Details</string>
     <string name="message_no_network_connected_str">No network connected!</string>
     <string name="message_something_went_wrong_str">Something went wrong!</string>
     <string name="label_no_internet">No internet connection</string>
+
+    // error strings
+    <string name="something_went_wrong">Something went wrong..</string>
+    <string name="an_alien_is_probably_blocking_your_signal">An alien is probably blocking your signal.</string>
+    <string name="retry">retry</string>
+    <string name="no_internet">No Internet</string>
+    <string name="internet_available">But Internet is available now you can click retry.</string>
+    <string name="label_db_cleared">The database has been cleared by you click on retry to download data.</string>
 
 </resources>

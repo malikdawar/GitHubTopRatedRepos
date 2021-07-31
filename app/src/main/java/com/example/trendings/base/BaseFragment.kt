@@ -1,23 +1,30 @@
 package com.example.trendings.base
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.trendings.core.utils.DialogUtils
-import com.example.trendings.ui.MainActivity
-import com.kaopiz.kprogresshud.KProgressHUD
+import androidx.viewbinding.ViewBinding
 
 /**
  * The BaseFragment.kt
  * @author Malik Dawar, malikdawar@hotmail.com
  */
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
-    protected lateinit var mainActivity: MainActivity
-    protected lateinit var progressDialog: KProgressHUD
+    private var _bindingInflater: VB? = null
+    protected val binding: VB get() = _bindingInflater!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        mainActivity = activity as MainActivity
-        progressDialog = DialogUtils.showProgressDialog(mainActivity, cancelable = false)
+    abstract val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> VB
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        _bindingInflater = bindingInflater(inflater, container, false)
+        return _bindingInflater!!.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _bindingInflater = null
     }
 }

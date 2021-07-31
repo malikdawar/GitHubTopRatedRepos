@@ -2,10 +2,10 @@ package com.example.trendings.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.trending.databinding.UiInternetMonitorBinding
 import com.example.trendings.core.extensions.gone
 import com.example.trendings.core.extensions.visible
 import com.example.trendings.core.utils.InternetMonitor
+import com.example.trendings.databinding.UiInternetMonitorBinding
 
 /**
  * The BaseActivity.kt

@@ -1,29 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nestedScrollView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="8dp">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/homeTrendingRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/adapter_trending" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/photosRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="2"
-            tools:ignore="MissingConstraints"
-            tools:itemCount="7"
-            tools:listitem="@layout/row_item_photo" />
+    <include
+        android:id="@+id/uiError"
+        layout="@layout/ui_error"
+        tools:visibility="gone" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/homeTrendingsShimmerLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone">
 
-</androidx.core.widget.NestedScrollView>
+        <include layout="@layout/adapter_trending_shimmer" />
 
+        <include layout="@layout/adapter_trending_shimmer" />
+
+        <include layout="@layout/adapter_trending_shimmer" />
+
+        <include layout="@layout/adapter_trending_shimmer" />
+
+        <include layout="@layout/adapter_trending_shimmer" />
+
+        <include layout="@layout/adapter_trending_shimmer" />
+
+        <include layout="@layout/adapter_trending_shimmer" />
+
+        <include layout="@layout/adapter_trending_shimmer" />
+
+        <include layout="@layout/adapter_trending_shimmer" />
+
+        <include layout="@layout/adapter_trending_shimmer" />
+
+        <include layout="@layout/adapter_trending_shimmer" />
+
+        <include layout="@layout/adapter_trending_shimmer" />
+
+        <include layout="@layout/adapter_trending_shimmer" />
+
+        <include layout="@layout/adapter_trending_shimmer" />
+
+        <include layout="@layout/adapter_trending_shimmer" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

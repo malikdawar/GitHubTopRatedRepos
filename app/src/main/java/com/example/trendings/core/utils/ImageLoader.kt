@@ -8,6 +8,6 @@ import com.bumptech.glide.Glide
  * @see Glide The library used which loads memory cached images.
  * @author Malik Dawar, malikdawar@hotmail.com
  */
-fun ImageView.load(url: String) {
+fun ImageView.loadImage(url: String) {
     Glide.with(this).load(url).into(this)
 }

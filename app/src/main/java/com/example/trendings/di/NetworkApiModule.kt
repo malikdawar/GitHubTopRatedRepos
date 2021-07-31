@@ -1,10 +1,8 @@
 package com.example.trendings.di
 
 import com.example.trendings.core.utils.Const
-import com.example.trendings.core.utils.Const.API_KEY
 import com.example.trendings.core.utils.Const.REQUEST_TIMEOUT
 import com.example.trendings.data.remote.ApiInterface
-import com.example.trendings.data.remote.ApiResponseCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -56,7 +54,6 @@ class NetworkApiModule {
             .baseUrl(Const.BASE_API_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(ApiResponseCallAdapterFactory())
             .build()
     }
 
