@@ -11,6 +11,7 @@ import androidx.viewbinding.ViewBinding
  * specified layout inflater without thread safety mode.
  *
  * This property must be used lazily after views are settled.
+ * @author malik dawar, malikdawar@hotmail.com
  */
 @MainThread
 inline fun <T : ViewBinding> AppCompatActivity.viewBinding(

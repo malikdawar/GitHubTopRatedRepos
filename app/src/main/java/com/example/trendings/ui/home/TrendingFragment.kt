@@ -12,6 +12,11 @@ import com.example.trendings.core.utils.InternetMonitor
 import com.example.trendings.databinding.FragmentTrendingReposBinding
 import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * The TrendingFragment.kt
+ * @author Malik Dawar, malikdawar@hotmail.com
+ */
+
 @AndroidEntryPoint
 class TrendingFragment : BaseFragment<FragmentTrendingReposBinding>(),
     InternetMonitor.OnInternetConnectivityListener {

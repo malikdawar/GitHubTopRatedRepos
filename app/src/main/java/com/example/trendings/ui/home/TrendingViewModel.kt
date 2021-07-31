@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.trendings.base.BaseViewModel
 import com.example.trendings.data.remote.model.TrendingRepoCallBack
 import com.example.trendings.data.repository.TrendingRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -12,9 +13,14 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
+/**
+ * The TrendingViewModel.kt
+ * @author Malik Dawar, malikdawar@hotmail.com
+ */
+
 @HiltViewModel
 class TrendingViewModel @Inject constructor(
-    private val trendingRepository: TrendingRepository) : ViewModel() {
+    private val trendingRepository: TrendingRepository) : BaseViewModel() {
 
     private val trendingUIData = MutableLiveData<TrendingUIState>()
 

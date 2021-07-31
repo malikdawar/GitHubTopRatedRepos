@@ -10,6 +10,7 @@ import javax.inject.Inject
 
 /**
  * This repository is used for fetching trending github repos from a data source.
+ * @author Malik Dawar, malikdawar@hotmail.com
  */
 class TrendingRepository @Inject constructor(
     private val remoteSource: RemoteSource,

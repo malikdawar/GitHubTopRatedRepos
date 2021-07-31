@@ -16,8 +16,9 @@ import javax.inject.Singleton
 
 /**
  * The Dagger Module to provide the instances of [OkHttpClient], [Retrofit], and [ApiInterface] classes.
- * @author Malik Dawar
+ * @author Malik Dawar, malikdawar@hotmail.com
  */
+
 @Module
 @InstallIn(SingletonComponent::class)
 class NetworkApiModule {

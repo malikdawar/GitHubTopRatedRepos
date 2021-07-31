@@ -1,7 +1,11 @@
 package com.example.trendings.ui
 
+import android.content.res.Configuration
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.viewbinding.ViewBinding
 import com.example.trendings.R
 import com.example.trendings.base.BaseActivity
@@ -28,4 +32,5 @@ class MainActivity : BaseActivity() {
 
         replaceFragmentSafely(TrendingFragment())
     }
+
 }

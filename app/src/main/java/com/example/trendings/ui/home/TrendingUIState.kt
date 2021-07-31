@@ -4,6 +4,7 @@ import com.example.trendings.data.local.models.Trending
 
 /**
  * This class represents UI and it's state for trending repositories data.
+ * @author Malik Dawar, malikdawar@hotmail.com
  */
 sealed class TrendingUIState {
     object Loading : TrendingUIState()

@@ -7,13 +7,17 @@ import com.example.trendings.core.utils.loadImage
 import com.example.trendings.data.local.models.Trending
 import com.example.trendings.databinding.RowAdapterTrendingBinding
 
+/**
+ * The TrendingAdapter.kt
+ * @author Malik Dawar, malikdawar@hotmail.com
+ */
+
 class TrendingAdapter :
     RecyclerView.Adapter<TrendingAdapter.TrendingViewHolder>() {
 
     private val trendingList: MutableList<Trending> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrendingViewHolder {
-
         return TrendingViewHolder(
             RowAdapterTrendingBinding.inflate(
                 LayoutInflater.from(parent.context),

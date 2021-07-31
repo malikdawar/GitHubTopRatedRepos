@@ -1,12 +1,9 @@
 package com.example.trendings.core.extensions
 
-import android.os.Bundle
 import androidx.annotation.AnimRes
 import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import com.example.trendings.R
 
 /**
@@ -49,47 +46,5 @@ fun AppCompatActivity.replaceFragmentSafely(
         ft.commit()
     } else if (allowStateLoss) {
         ft.commitAllowingStateLoss()
-    }
-}
-
-/**
- * Extension function to replace Fragment Safely from a Fragment
- * @param fragment destination Fragment
- * @param addToBackStack as Boolean default value is true
- * @param bundle as Bundle could be null
- * @author Dawar Malik.
- */
-fun Fragment.replaceFragment(
-    fragment: Fragment,
-    addToBackStack: Boolean = true,
-    bundle: Bundle? = null,
-    shouldReplace: Boolean = true
-) {
-    val transaction =
-        this.parentFragmentManager.beginTransaction()
-    if (addToBackStack) {
-        transaction.addToBackStack(null)
-    }
-    if (shouldReplace)
-        transaction.replace(R.id.container, fragment, fragment.javaClass.name)
-    else
-        transaction.add(R.id.container, fragment, fragment.javaClass.name)
-
-    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-    fragment.arguments = bundle
-    transaction.commit()
-}
-
-/**
- * Extension function to pop back stack
- * @return void
- * * @author Dawar Malik.
- */
-fun AppCompatActivity.backPress() {
-    val fragmentManager: FragmentManager = this.supportFragmentManager
-    if (fragmentManager.backStackEntryCount >= 1) {
-        fragmentManager.popBackStack()
-    } else {
-        this.finish()
     }
 }

@@ -3,6 +3,11 @@ package com.example.trendings.data.local.models
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+/**
+ * The Trending.kt
+ * @author Malik Dawar, malikdawar@hotmail.com
+ */
+
 @Entity
 data class Trending(
     @PrimaryKey val id: Int? = null,

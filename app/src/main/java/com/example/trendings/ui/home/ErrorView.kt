@@ -7,6 +7,11 @@ import com.example.trendings.core.extensions.gone
 import com.example.trendings.core.extensions.visible
 import com.example.trendings.databinding.UiErrorBinding
 
+/**
+ * The ErrorView.kt
+ * @author Malik Dawar, malikdawar@hotmail.com
+ */
+
 class ErrorView(private val uiErrorBinding: UiErrorBinding) {
 
     private lateinit var onClickRetryButton: () -> Unit
