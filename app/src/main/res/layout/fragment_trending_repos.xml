@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/homeTrendingRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/row_adapter_trending" />
+
+    <include
+        android:id="@+id/uiError"
+        layout="@layout/ui_error"
+        tools:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/homeTrendingsShimmerLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone">
+
+        <include layout="@layout/row_adapter_trending_shimmer" />
+
+        <include layout="@layout/row_adapter_trending_shimmer" />
+
+        <include layout="@layout/row_adapter_trending_shimmer" />
+
+        <include layout="@layout/row_adapter_trending_shimmer" />
+
+        <include layout="@layout/row_adapter_trending_shimmer" />
+
+        <include layout="@layout/row_adapter_trending_shimmer" />
+
+        <include layout="@layout/row_adapter_trending_shimmer" />
+
+        <include layout="@layout/row_adapter_trending_shimmer" />
+
+        <include layout="@layout/row_adapter_trending_shimmer" />
+
+        <include layout="@layout/row_adapter_trending_shimmer" />
+
+        <include layout="@layout/row_adapter_trending_shimmer" />
+
+        <include layout="@layout/row_adapter_trending_shimmer" />
+
+        <include layout="@layout/row_adapter_trending_shimmer" />
+
+        <include layout="@layout/row_adapter_trending_shimmer" />
+
+        <include layout="@layout/row_adapter_trending_shimmer" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
