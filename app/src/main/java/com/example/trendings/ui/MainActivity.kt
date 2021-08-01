@@ -40,6 +40,7 @@ class MainActivity : BaseActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            // not using the preferences to save the settings... jut demonstrating the way to handle
             R.id.action_day_night_mode -> {
                 // Get new mode.
                 val mode =

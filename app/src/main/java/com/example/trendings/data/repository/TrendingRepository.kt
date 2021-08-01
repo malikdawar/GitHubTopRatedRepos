@@ -1,9 +1,9 @@
 package com.example.trendings.data.repository
 
 import com.example.trendings.data.local.LocalSource
+import com.example.trendings.data.mappers.TrendingMapper
 import com.example.trendings.data.remote.RemoteSource
 import com.example.trendings.data.remote.model.TrendingRepoCallBack
-import com.example.trendings.data.remote.model.toLocalList
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -14,7 +14,8 @@ import javax.inject.Inject
  */
 class TrendingRepository @Inject constructor(
     private val remoteSource: RemoteSource,
-    private val localSource: LocalSource
+    private val localSource: LocalSource,
+    private val mapper: TrendingMapper
 ) {
     /**
      * This webservice doesn't support pagination.
@@ -33,15 +34,14 @@ class TrendingRepository @Inject constructor(
     suspend fun getTrendingRepos(refresh: Boolean = false): TrendingRepoCallBack =
         withContext(Dispatchers.IO) {
             try {
-                var localList = localSource.getTrendingRepos()
-                if (refresh || localList.isEmpty()) {
+                var trending = localSource.getTrendingRepos()
+                if (refresh || trending.isEmpty()) {
                     remoteSource.getTrendingRepos()?.items?.run {
-                        localList = toLocalList()
-                        localSource.insertTrendingRepos(localList)
+                        trending = mapper.mapper(this).toMutableList()
+                        localSource.insertTrendingRepos(trending)
                     }
-
                 }
-                TrendingRepoCallBack.Repositories(localList)
+                TrendingRepoCallBack.Repositories(trending)
             } catch (e: Exception) {
                 e.printStackTrace()
                 TrendingRepoCallBack.Error(e.toString())

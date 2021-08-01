@@ -9,6 +9,10 @@ import retrofit2.http.GET
  */
 
 interface ApiInterface {
-    @GET("search/repositories?q=language=+sort:stars")
+    @GET(GET_TRENDING_REPOS)
     suspend fun getTrendingRepos(): TrendingResponse?
+
+    companion object{
+        const val GET_TRENDING_REPOS = "/search/repositories?q=language=+sort:stars"
+    }
 }

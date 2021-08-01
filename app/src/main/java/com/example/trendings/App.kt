@@ -20,8 +20,8 @@ class App : Application() {
         instance = this
     }
 
-    fun setupDayNightMode() {
-        // Get UI mode and set
+    private fun setupDayNightMode() {
+        // Get UI mode and set, not using the preferences to save the settings... jut demonstrating the way to handle
         val mode = if (checkIsNight()) {
             AppCompatDelegate.MODE_NIGHT_YES
         } else {

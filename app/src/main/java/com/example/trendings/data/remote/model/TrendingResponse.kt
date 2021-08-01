@@ -1,6 +1,5 @@
 package com.example.trendings.data.remote.model
 
-import com.example.trendings.data.local.models.Trending
 import com.google.gson.annotations.SerializedName
 
 data class TrendingResponse(
@@ -9,34 +8,20 @@ data class TrendingResponse(
     val items: List<Item>? = null
 )
 
-data class Owner(
-    val gistsUrl: String? = null,
-    val reposUrl: String? = null,
-    val followingUrl: String? = null,
-    val starredUrl: String? = null,
-    val login: String? = null,
-    val followersUrl: String? = null,
-    val type: String? = null,
-    val url: String? = null,
-    val subscriptionsUrl: String? = null,
-    val receivedEventsUrl: String? = null,
-    @SerializedName("avatar_url")
-    val avatarUrl: String? = null,
-    val eventsUrl: String? = null,
-    val htmlUrl: String? = null,
-    val siteAdmin: Boolean? = null,
-    val id: Int? = null,
-    val gravatarId: String? = null,
-    val nodeId: String? = null,
-    val organizationsUrl: String? = null
-)
-
 data class Item(
     @SerializedName("stargazers_count")
     val stargazersCount: Int? = null,
+    val id: Int? = null,
+    val language: String? = null,
+    val description: String? = null,
+    val name: String? = null,
+    val owner: Owner? = null,
+
+    /*
+    Commenting the irrelevant objects, these are available and can be used in future
+
     val pushedAt: String? = null,
     val subscriptionUrl: String? = null,
-    val language: String? = null,
     val branchesUrl: String? = null,
     val issueCommentUrl: String? = null,
     val labelsUrl: String? = null,
@@ -44,7 +29,6 @@ data class Item(
     val subscribersUrl: String? = null,
     val releasesUrl: String? = null,
     val svnUrl: String? = null,
-    val id: Int? = null,
     val forks: Int? = null,
     val archiveUrl: String? = null,
     val gitRefsUrl: String? = null,
@@ -58,7 +42,7 @@ data class Item(
     val htmlUrl: String? = null,
     val collaboratorsUrl: String? = null,
     val cloneUrl: String? = null,
-    val name: String? = null,
+
     val pullsUrl: String? = null,
     val defaultBranch: String? = null,
     val hooksUrl: String? = null,
@@ -69,7 +53,6 @@ data class Item(
     val hasDownloads: Boolean? = null,
     val notificationsUrl: String? = null,
     val openIssuesCount: Int? = null,
-    val description: String? = null,
     val createdAt: String? = null,
     val watchers: Int? = null,
     val keysUrl: String? = null,
@@ -83,7 +66,6 @@ data class Item(
     val disabled: Boolean? = null,
     val gitUrl: String? = null,
     val hasPages: Boolean? = null,
-    val owner: Owner? = null,
     val commitsUrl: String? = null,
     val compareUrl: String? = null,
     val gitCommitsUrl: String? = null,
@@ -107,26 +89,36 @@ data class Item(
     val nodeId: String? = null,
     val homepage: String? = null,
     val forksCount: Int? = null
+     */
 )
 
-/**
- * Converts response model list to local db model list.
- */
-fun List<Item>.toLocalList(): MutableList<Trending> {
-    return MutableList(size) { get(it).run {
-            Trending(
-                id = id,
-                username = owner?.login,
-                libraryName = name,
-                language = language,
-                description = description,
-                imageUrl = owner?.avatarUrl,
-                stars = stargazersCount
-            )
-        }
-    }
-}
+data class Owner(
+    val login: String? = null,
+    @SerializedName("avatar_url")
+    val avatarUrl: String? = null,
 
+    /*
+    For the better performance commenting the irrelevant objects, these are available and can be used in future
+
+    val gistsUrl: String? = null,
+    val reposUrl: String? = null,
+    val followingUrl: String? = null,
+    val starredUrl: String? = null,
+    val followersUrl: String? = null,
+    val type: String? = null,
+    val url: String? = null,
+    val subscriptionsUrl: String? = null,
+    val receivedEventsUrl: String? = null,
+    val eventsUrl: String? = null,
+    val htmlUrl: String? = null,
+    val siteAdmin: Boolean? = null,
+    val id: Int? = null,
+    val gravatarId: String? = null,
+    val nodeId: String? = null,
+    val organizationsUrl: String? = null*/
+)
+
+/*
 data class License(
     val name: String? = null,
     val spdxId: String? = null,
@@ -134,4 +126,5 @@ data class License(
     val url: Any? = null,
     val nodeId: String? = null
 )
+*/
 
