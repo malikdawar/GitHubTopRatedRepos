@@ -1,4 +1,4 @@
-# Github trending
+# GitHub Top Rated Repositories
 
 A clean example to play with the local and the remoate data sources, uesd github trending API for the data source. Focused on the Kotlin coroutines, MVVM with repository layer, data source (Usecase) layer and Kotlin generics with the help of Hilt. Used mockk and Junit 4 for the testing purpose.
 
